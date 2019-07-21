@@ -11,6 +11,6 @@ FIRST:  change the parameters in FsnNodeHealth.py
 SECOND: copy fusion_health_server_VPS.py to your VPS
 
 THIRD: run fusion_health_server_VPS.py on your VPS  (#> ./fusion_health_server_VPS.py > /dev/null &) This then waits for you to run 
-FsnNodeHealthCheck.py
+FsnNodeHealth.py
 
 FINALLY: run FsnNodeHealth.py on your home PC (# python FsnNodeHealth.py)
