@@ -32,3 +32,8 @@ FINALLY: run FsnNodeHealth.py on your home PC
 Both programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with #>fg
 
 If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect. Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
+
+
+TO DO
+
+Soon I will change FsnNodeHealth.py to optionally use web3.fusion.extend to extract the block info.
