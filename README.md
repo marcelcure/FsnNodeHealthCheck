@@ -7,7 +7,9 @@ Please edit the python program FsnNodeHealthCheck using Notepad (Windows) or nan
 parameters and to understand how to run it.
 
 FIRST:  change the parameters in FsnNodeHealthCheck.py
+
 SECOND: copy fusion_health_server_VPS.py to your VPS
+
 THIRD: run fusion_health_server_VPS.py on your VPS  (#> ./fusion_health_server_VPS.py) This then waits for you to run 
 FsnNodeHealthCheck.py
 
