@@ -11,4 +11,4 @@ SECOND: copy fusion_health_server_VPS.py to your VPS
 THIRD: run fusion_health_server_VPS.py on your VPS  (#> ./fusion_health_server_VPS.py) This then waits for you to run 
 FsnNodeHealthCheck.py
 
-FINALLY: run FsnNodeHealthCheck.py on your home PC
+FINALLY: run FsnNodeHealthCheck.py on your home PC (# python FsnNodeHealthCheck.py)
