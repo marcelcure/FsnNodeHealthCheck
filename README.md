@@ -8,8 +8,11 @@ parameters and to understand how to run it.
 Python programme running on your VPS that sends some docker log data to a port so that your home PC can collect it.
 
 These two programs will check that :-
-(1) The VPS is connected to the internet and can be pinged. Program makes sure that YOUR internet is working first.
+
+(1) The VPS is connected to the internet and can be pinged. Programme makes sure that YOUR internet is working first.
+
 (2) Your home PC can access the fusion docker logs and can extract the mined and imported blocks.
+
 (3) The mined and imported blocks are advancing and are not too far out of sync.
 
 STEPS TO TAKE TO GET IT RUNNING
@@ -26,6 +29,6 @@ This then waits for you to run FsnNodeHealth.py
 FINALLY: run FsnNodeHealth.py on your home PC
 #> python FsnNodeHealth.py
 
-Both programs can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with #>fg
+Both programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with #>fg
 
 If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect. Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
