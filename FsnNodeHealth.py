@@ -42,7 +42,7 @@ tdelay = 30     # Time in seconds between trying pings to hostIP. OK to leave 'a
 maxconnerr = 5  # Max No. of tries to connect to docker before sending email warning. OK to leave 'as is'
 mining_import_gap = 5  # We want the latest imported block to be close to the latest mined block. This is the acceptable difference
 hostIP = [
-    '00.00.00.00',        # Mainnet IP address. Put your own one here
+    '00.00.00.00',        # Mainnet IP address. Put your own VPS IP here
 #     '123.123.123.123',     # Comment out the above entries and uncomment this dummy one to test your email response
 ]
 # Define the port on which you want to connect 
