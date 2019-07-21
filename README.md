@@ -30,6 +30,7 @@ THIRD: run fusion_health_server_VPS.py on your VPS
 This then waits for you to run FsnNodeHealth.py
 
 FINALLY: run FsnNodeHealth.py on your home PC
+
 #> python FsnNodeHealth.py
 
 Both programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with #>fg
