@@ -36,9 +36,13 @@ This then waits for you to run FsnNodeHealth.py
 FINALLY: run FsnNodeHealth.py on your home PC
 
 for Linux :-
+
 #> chmod +x FsnNodeHealth.py  (Only first time)
+
 #> ./FsnNodeHealth.py
+
 OR for Windows Pc :-
+
 #> python FsnNodeHealth_Windows.py
 
 Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with #>fg
