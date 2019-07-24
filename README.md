@@ -1,8 +1,12 @@
 # FsnNodeHealth.py
-Python program running in the background on your home PC (Windows or Linux) to check that your node is running properly. If there is a problem, it emails you to let you know.
+Python program running in the background on your home PC (Linux) to check that your node is running properly. If there is a problem, it emails you to let you know.
 
 Please edit the python program FsnNodeHealth.py using Notepad (Windows) or nano/vim (Linux) to change the IP addresses and email
 parameters and to understand how to run it.
+
+# FsnNodeHealth_Windows.py
+
+This is the Windows version of FsnNodeHealth.py  Use this instead of FsnNodeHealth.py
 
 # fusion_health_server_VPS.py
 Python programme running on your VPS that sends some docker log data to a port so that your home PC can collect it.
@@ -31,9 +35,13 @@ This then waits for you to run FsnNodeHealth.py
 
 FINALLY: run FsnNodeHealth.py on your home PC
 
-#> python FsnNodeHealth.py
+for Linux :-
+#> chmod +x FsnNodeHealth.py  (Only first time)
+#> ./FsnNodeHealth.py
+OR for Windows Pc :-
+#> python FsnNodeHealth_Windows.py
 
-Both programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with #>fg
+Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with #>fg
 
 If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect. Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
 
