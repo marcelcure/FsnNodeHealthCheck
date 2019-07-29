@@ -25,6 +25,8 @@ FIRST:  change the parameters in FsnNodeHealth.py
 
 SECOND: copy fusion_health_server_VPS.py to your VPS
 
+git clone https://github.com/marcelcure/FsnNodeHealthCheck.git
+
 THIRD: run fusion_health_server_VPS.py on your VPS  
 
 chmod +x fusion_health_server_VPS.py  (only the first time)
