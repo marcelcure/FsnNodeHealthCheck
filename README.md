@@ -27,9 +27,9 @@ SECOND: copy fusion_health_server_VPS.py to your VPS
 
 THIRD: run fusion_health_server_VPS.py on your VPS  
 
-#> chmod +x fusion_health_server_VPS.py  (only the first time)
+chmod +x fusion_health_server_VPS.py  (only the first time)
 
-#> ./fusion_health_server_VPS.py > /dev/null &
+./fusion_health_server_VPS.py > /dev/null &
 
 This then waits for you to run FsnNodeHealth.py
 
@@ -37,15 +37,15 @@ FINALLY: run FsnNodeHealth.py on your home PC
 
 for Linux :-
 
-#> chmod +x FsnNodeHealth.py  (Only first time)
+chmod +x FsnNodeHealth.py  (Only first time)
 
-#> ./FsnNodeHealth.py
+./FsnNodeHealth.py
 
 OR for Windows Pc :-
 
-#> python FsnNodeHealth_Windows.py
+python FsnNodeHealth_Windows.py
 
-Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with #>fg
+Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with fg
 
 If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect. Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
 
