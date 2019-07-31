@@ -31,9 +31,15 @@ THIRD: run fusion_health_server_VPS.py on your VPS
 
 chmod +x fusion_health_server_VPS.py  (only the first time)
 
-./fusion_health_server_VPS.py > /dev/null &
+./fusion_health_server_VPS.py > fusion_log.txt 2>&1 &
 
 This then waits for you to run FsnNodeHealth.py
+
+You can monitor what the programme is doing :-
+
+tail -f fusion_log.txt
+
+You can safely CTRL-C this tail command without stopping the programme and you can also log out of the command shell too.
 
 FINALLY: run FsnNodeHealth.py on your home PC
 
