@@ -31,7 +31,7 @@ THIRD: run fusion_health_server_VPS.py on your VPS
 
 chmod +x fusion_health_server_VPS.py  (only the first time)
 
-./fusion_health_server_VPS.py > fusion_log.txt 2>&1 &
+./fusion_health_server_VPS.py > fusion_log.txt  2>&1  &
 
 This then waits for you to run FsnNodeHealth.py
 
