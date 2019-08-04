@@ -1,5 +1,5 @@
 # FsnNodeHealth.py
-Python program running in the background on your home PC to check that your node is running properly. If there is a problem, it emails you to let you know.
+Python program running in the background on your home PC to check that your node is running properly. If there is a problem, it emails you to let you know. The programme is light weight and can be left running on your home PC indefinitly. You can either run it manually in a cmd window (Windows) or bash (Linux), or you can add it to your startup folder (Windows) or use /etc/init.d (Linux) to make it automatic.
 
 Please edit the python program FsnNodeHealth.py using Notepad (Windows) or nano/vim (Linux) to change the IP addresses and email
 parameters and to understand how to run it.
