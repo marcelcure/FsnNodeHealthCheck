@@ -4,9 +4,6 @@ Python program running in the background on your home PC (Linux) to check that y
 Please edit the python program FsnNodeHealth.py using Notepad (Windows) or nano/vim (Linux) to change the IP addresses and email
 parameters and to understand how to run it.
 
-# FsnNodeHealth_Windows.py
-
-This is the Windows version of FsnNodeHealth.py  Use this instead of FsnNodeHealth.py
 
 # fusion_health_server_VPS.py
 Python programme running on your VPS that sends some docker log data to a port so that your home PC can collect it.
@@ -17,7 +14,12 @@ These two programs will check that :-
 
 (2) Your home PC can access the fusion docker logs and can extract the mined and imported blocks.
 
-(3) The mined and imported blocks are advancing and are not too far out of sync.
+(3) The mined and imported blocks are advancing and are not too far out of sync. You can configure exactly how close you want it to be.
+
+(4) The latest mined block is close to the block height.  You can configure exactly how close you want it to be.
+
+In addition the programme reports back to the home PC how many FSN rewards have been earned.
+
 
 STEPS TO TAKE TO GET IT RUNNING
 
@@ -49,9 +51,9 @@ chmod +x FsnNodeHealth.py  (Only first time)
 
 ./FsnNodeHealth.py
 
-OR for Windows Pc :-
+OR for Windows PC :-
 
-python FsnNodeHealth_Windows.py
+python FsnNodeHealth.py
 
 Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with fg
 
