@@ -75,7 +75,6 @@ ps ax|grep fusion_health_server_VPS
 You see an output similar to below 
 
 14257 pts/1    S      0:00 python3 ./fusion_health_server_VPS.py
-
 16335 pts/1    S+     0:00 grep --color=auto fusion_health_server_VPS
 
 
