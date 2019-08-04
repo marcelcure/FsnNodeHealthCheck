@@ -37,7 +37,7 @@ chmod +x fusion_health_server_VPS.py  (only the first time)
 
 ./fusion_health_server_VPS.py > fusion_log.txt  2>&1  &
 
-This then waits for you to run FsnNodeHealth.py
+This then waits for you to run FsnNodeHealth.py on your home PC (step shown below)
 
 You can monitor what the programme is doing :-
 
