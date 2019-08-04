@@ -9,6 +9,7 @@ import signal
 from email.message import EmailMessage
 import urllib.request
 import json
+import datetime
 
 #
 ####################################################################################################################
@@ -158,6 +159,7 @@ while(1):
                      barray = s.recv(1024)
                      s.sendall(bytes('received','utf-8'))
                      line = barray.decode("utf-8")
+                     tmnow = datetime.datetime.now()
                   except KeyboardInterrupt:
                      print('Bye')
                      sys.exit()
@@ -171,7 +173,7 @@ while(1):
                       block_import = int(a[0])
                       block_mining = int(a[1])
                       latest_block = int(a[2])
-                      print('block_import = ',block_import,' block_mining = ',block_mining, 'latest_block = ',latest_block, 'block_rewards = ', fusion_rewards())
+                      print(tmnow, ' block_import = ',block_import,' block_mining = ',block_mining, 'latest_block = ',latest_block, 'block_rewards = ', fusion_rewards())
                       if block_mining > block_import + mining_import_gap:
                           print('Warning: Mining more than ',mining_import_gap,' blocks ahead of the last imported block. Could be that chain is slow!')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
