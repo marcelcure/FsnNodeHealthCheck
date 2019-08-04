@@ -31,6 +31,8 @@ git clone https://github.com/marcelcure/FsnNodeHealthCheck.git
 
 THIRD: run fusion_health_server_VPS.py on your VPS  
 
+cd FsnNodeHealthCheck
+
 chmod +x fusion_health_server_VPS.py  (only the first time)
 
 ./fusion_health_server_VPS.py > fusion_log.txt  2>&1  &
@@ -60,6 +62,27 @@ Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py yo
 If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect. Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
 
 
+PROBLEMS
+
+Feel free to contact me on the Fusion TG for assistance.
+
+One problem I have found is that sometimes an old fusion_health_server_VPS process is left running on the VPS. This should be removed before running fusion_health_server_VPS.py
+
+To check if there is an old process left behind :-
+
+ps ax|grep fusion_health_server_VPS
+
+You see an output similar to below 
+
+14257 pts/1    S      0:00 python3 ./fusion_health_server_VPS.py
+
+16335 pts/1    S+     0:00 grep --color=auto fusion_health_server_VPS
+
+
+If you see it running (ignore the line with grep in it), then find the process ID number  (PID) and kill it :-
+
+kill PID     - insert the actual number in the first column instead of PID
+
 TO DO
 
-Soon I will change FsnNodeHealth.py to optionally use web3.fusion.extend to extract the block info.
+Soon I will change FsnNodeHealth.py to optionally use web3-fusion-extend using JS to extract the block info.
