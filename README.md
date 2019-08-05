@@ -12,7 +12,7 @@ Python programme running on your VPS that sends some docker log data to a port s
 
 
 
-FUNCTIONALITY
+# FUNCTIONALITY
 
 These two programs working together will check that :-
 
@@ -28,7 +28,7 @@ In addition the programme reports back to the home PC how many FSN rewards have 
 
 
 
-STEPS TO TAKE TO GET IT RUNNING
+# STEPS TO TAKE TO GET IT RUNNING
 
 FIRST:  change the parameters in FsnNodeHealth.py
 
@@ -73,7 +73,7 @@ Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py yo
 If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect. Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
 
 
-PROBLEMS
+# PROBLEMS
 
 Feel free to contact me on the Fusion TG for assistance.
 
@@ -96,6 +96,6 @@ kill PID     - insert the actual number in the first column instead of PID
 
 
 
-TO DO
+# TO DO
 
 Soon I will change FsnNodeHealth.py to optionally use web3-fusion-extend using JS to extract the block info.
