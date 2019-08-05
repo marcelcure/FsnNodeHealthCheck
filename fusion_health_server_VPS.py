@@ -2,6 +2,7 @@
 import subprocess
 import time
 import socket
+import os
 #
 #
 #
@@ -112,9 +113,13 @@ while(1):
              [block_import,block_mining] = block_mining_info_LOGS()
              latest_block = get_latest_block()
 
-             print('block_import = ',block_import,' block_mining = ',block_mining,'latest_block = ',latest_block)
+             tot_m, used_m, free_m = map(int, os.popen('free -t -m').readlines()[-1].split()[1:])
+             disk = os.statvfs('/')
+             disk_kbytes_free = (disk.f_bavail * disk.f_frsize) / 1024
+
+             print('block_import = ',block_import,' block_mining = ',block_mining,' latest_block = ',latest_block, ' free_m = ',free_m, ' disk_kbytes_free = ',disk_kbytes_free )
              try:
-                conn.sendall(bytes(str(block_import) + ' ' + str(block_mining) + ' ' + str(latest_block),'utf-8'))
+                conn.sendall(bytes(str(block_import) + ' ' + str(block_mining) + ' ' + str(latest_block) + ' ' + str(free_m) + ' ' + str(int(disk_kbytes_free)),'utf-8'))
              except:
                 print('Client terminated pipe')
                 s.close()
