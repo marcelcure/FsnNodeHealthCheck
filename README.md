@@ -8,7 +8,7 @@ parameters and to understand how to run it.
 # fusion_health_server_VPS.py
 Python programme running on your VPS that sends some docker log data to a port so that your home PC can collect it.
 
-These two programs will check that :-
+These two programs working together will check that :-
 
 (1) The VPS is connected to the internet and can be pinged. Programme makes sure that YOUR internet is working first.
 
