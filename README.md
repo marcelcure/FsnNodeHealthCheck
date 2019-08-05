@@ -57,6 +57,10 @@ OR for Windows PC :-
 
 python FsnNodeHealth.py
 
+You will need to download and install python for Windows, since it doesn't come pre-installed. 
+
+See https://www.python.org/downloads/  Click the button to update your PATH.
+
 Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with fg
 
 If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect. Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
@@ -75,6 +79,7 @@ ps ax|grep fusion_health_server_VPS
 You see an output similar to below 
 
 14257 pts/1    S      0:00 python3 ./fusion_health_server_VPS.py
+
 16335 pts/1    S+     0:00 grep --color=auto fusion_health_server_VPS
 
 
