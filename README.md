@@ -25,9 +25,9 @@ These two programs working together will check that :-
 
 (4) The latest mined block of your node is close to the block height.  You can configure exactly how close you want it to be.
 
-(5) There is sufficient free RAM on your node. You can configure exactly how free RAM you want there to be.
+(5) There is sufficient free RAM on your node. You can configure exactly how much free RAM you want there to be.
 
-(6) There is sufficient free disk space on your node's / partition. You can configure exactly how free disk space you want there to be.
+(6) There is sufficient free disk space on your node's / partition. You can configure exactly how much free disk space you want there to be.
 
 In addition the programme reports back to the home PC how many FSN rewards have been earned.
 
