@@ -6,7 +6,11 @@ parameters and to understand how to run it.
 
 
 # fusion_health_server_VPS.py
-Python programme running on your VPS that sends some docker log data to a port so that your home PC can collect it.
+Python programme running on your VPS that sends some docker log data to a port so that your home PC can collect it. This lightweight programme runs in the background.
+
+
+
+FUNCTIONALITY
 
 These two programs working together will check that :-
 
@@ -19,6 +23,7 @@ These two programs working together will check that :-
 (4) The latest mined block of your node is close to the block height.  You can configure exactly how close you want it to be.
 
 In addition the programme reports back to the home PC how many FSN rewards have been earned.
+
 
 
 STEPS TO TAKE TO GET IT RUNNING
@@ -86,6 +91,8 @@ You see an output similar to below
 If you see it running (ignore the line with grep in it), then find the process ID number  (PID) and kill it :-
 
 kill PID     - insert the actual number in the first column instead of PID
+
+
 
 TO DO
 
