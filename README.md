@@ -12,11 +12,11 @@ These two programs working together will check that :-
 
 (1) The VPS is connected to the internet and can be pinged. Programme makes sure that YOUR internet is working first.
 
-(2) Your home PC can access the fusion docker logs and can extract the mined and imported blocks.
+(2) Your home PC can access the fusion docker logs and can extract the mined and imported blocks of your node.
 
-(3) The mined and imported blocks are advancing and are not too far out of sync. You can configure exactly how close you want it to be.
+(3) The mined and imported blocks of your node are advancing and are not too far out of sync. You can configure exactly how close you want it to be.
 
-(4) The latest mined block is close to the block height.  You can configure exactly how close you want it to be.
+(4) The latest mined block of your node is close to the block height.  You can configure exactly how close you want it to be.
 
 In addition the programme reports back to the home PC how many FSN rewards have been earned.
 
