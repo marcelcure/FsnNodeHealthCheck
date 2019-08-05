@@ -1,6 +1,8 @@
 # FsnNodeHealth.py
 Python program running in the background on your home PC to check that your node is running properly. If there is a problem, it emails you to let you know. The programme is light weight and can be left running on your home PC indefinitly. You can either run it manually in a cmd window (Windows) or bash (Linux), or you can add it to your startup folder (Windows) or use /etc/init.d (Linux) to make it automatic.
 
+You can optionally record your nodes data into a csv file for import into Excel/LibreOffice.
+
 Please edit the python program FsnNodeHealth.py using Notepad (Windows) or nano/vim (Linux) to change the IP addresses and email
 parameters and to understand how to run it.
 
@@ -22,6 +24,10 @@ These two programs working together will check that :-
 (3) The mined and imported blocks of your node are advancing and are not too far out of sync. You can configure exactly how close you want it to be.
 
 (4) The latest mined block of your node is close to the block height.  You can configure exactly how close you want it to be.
+
+(5) There is sufficient free RAM on your node. You can configure exactly how free RAM you want there to be.
+
+(6) There is sufficient free disk space on your node's / partition. You can configure exactly how free disk space you want there to be.
 
 In addition the programme reports back to the home PC how many FSN rewards have been earned.
 
