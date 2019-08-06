@@ -3,6 +3,7 @@ import subprocess
 import time
 import socket
 import os
+import netifaces as ni
 #
 #
 #
@@ -83,6 +84,14 @@ def get_latest_block():
     return(latest_block)
 #
 #
+#
+def get_IP_address(iface):
+   ni.ifaddresses('eth0')
+   ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
+   return(ip)
+#
+#
+#
 #######################################################################################
 #
 #
@@ -92,7 +101,8 @@ def get_latest_block():
 #
 while(1):
    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-       HOST = socket.gethostname()
+       HOST = get_IP_address('eth0')
+       print('hostname = ', HOST)
        s.bind((HOST, PORT))
        print("socket bound to %s" %(PORT))
        s.listen(2)         # Only allow two incoming connections
