@@ -37,7 +37,7 @@ In addition the programme reports back to the home PC how many FSN rewards have 
 
 FIRST:  change the parameters in FsnNodeHealth.py
 
-SECOND: copy fusion_health_server_VPS.py to your VPS :-
+SECOND: download fusion_health_server_VPS.py to your VPS :-
 
 git clone https://github.com/marcelcure/FsnNodeHealthCheck.git
 
@@ -45,7 +45,7 @@ THIRD: run fusion_health_server_VPS.py on your VPS
 
 cd FsnNodeHealthCheck
 
-chmod +x fusion_health_server_VPS.py  (only the first time)
+chmod +x fusion_health_server_VPS.py  (only the first time, or if you git update)
 
 ./fusion_health_server_VPS.py > fusion_log.txt  2>&1  &
 
@@ -57,7 +57,7 @@ tail -f fusion_log.txt
 
 You can safely CTRL-C this tail command without stopping the programme and you can also log out of the command shell too.
 
-FINALLY: run FsnNodeHealth.py on your home PC
+FINALLY: download the code to your home PC (either the zip or git clone), modify FsnNodeHealth.py for your email etc. and then run FsnNodeHealth.py on your home PC
 
 for Linux :-
 
@@ -75,7 +75,7 @@ See https://www.python.org/downloads/  Click the button to update your PATH.
 
 Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with fg
 
-If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect. Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
+If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect (wait 1 minute before running FsnNodeHealth.py again to allow fusion_health_server_VPS.py to reset itself). Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
 
 
 # PROBLEMS
@@ -99,7 +99,7 @@ If you see it running (ignore the line with grep in it), then find the process I
 
 kill PID     - insert the actual number in the first column instead of PID
 
-
+Another problem is that if you CTRL-C FsnNodeHealth.py on your home PC and then re-run it immediately, then fusion_health_server_VPS.py on the VPS won't be ready for it (you have to wait 1 minute). This will mean you have to kill the process fusion_health_server_VPS.py on the VPS and restart it, follwed by FsnNodeHealth.py on your home PC.
 
 # TO DO
 
