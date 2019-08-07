@@ -35,7 +35,7 @@ In addition the programme reports back to the home PC how many FSN rewards have 
 
 # STEPS TO TAKE TO GET IT RUNNING
 
-FIRST:  download the code to your home PC (either the zip or git clone), modify FsnNodeHealth.py for your email and other parameters in the section labelled 'USER CONFIGURABLE SECTION'. Use Notepad (Windows) or nano/vim (Linux) to do this.
+FIRST:  download the code to your home PC (either the zip or git clone), modify FsnNodeHealth.py for your email, IP address of your VPS and other parameters in the section labelled 'USER CONFIGURABLE SECTION'. Use Notepad (Windows) or nano/vim (Linux) to do this.
 
 Make sure that you have port forwarding set on your home router for TCP and UDP for the port 50505 (unless you have chosen a different one).
 
