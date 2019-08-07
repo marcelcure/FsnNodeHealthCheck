@@ -43,7 +43,7 @@ SECOND: download fusion_health_server_VPS.py to your VPS :-
 
 git clone https://github.com/marcelcure/FsnNodeHealthCheck.git
 
-Make sure that you have port forwarding set on your VPS for TCP and UDP for the port 50505 (unless you have chosen a different one).
+If you have a firewall set, make sure that you have port forwarding set on your VPS for TCP and UDP for the port 50505 (unless you have chosen a different one).
 
 THIRD: run fusion_health_server_VPS.py on your VPS  
 
