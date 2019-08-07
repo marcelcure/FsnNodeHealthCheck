@@ -35,7 +35,7 @@ In addition the programme reports back to the home PC how many FSN rewards have 
 
 # STEPS TO TAKE TO GET IT RUNNING
 
-FIRST:  change the parameters in FsnNodeHealth.py
+FIRST:  download the code to your home PC (either the zip or git clone), modify FsnNodeHealth.py for your email etc. 
 
 SECOND: download fusion_health_server_VPS.py to your VPS :-
 
@@ -57,7 +57,7 @@ tail -f fusion_log.txt
 
 You can safely CTRL-C this tail command without stopping the programme and you can also log out of the command shell too.
 
-FINALLY: download the code to your home PC (either the zip or git clone), modify FsnNodeHealth.py for your email etc. and then run FsnNodeHealth.py on your home PC
+FINALLY:  run FsnNodeHealth.py on your home PC
 
 for Linux :-
 
