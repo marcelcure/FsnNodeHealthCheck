@@ -1,5 +1,5 @@
 # FsnNodeHealth.py
-Python program running in the background on your home PC to check that your node is running properly. If there is a problem, it emails you to let you know. The programme is light weight and can be left running on your home PC indefinitly. You can either run it manually in a cmd window (Windows) or bash (Linux), or you can add it to your startup folder (Windows) or use /etc/init.d (Linux) to make it automatic.
+Python program running in the background on your home PC to check that your node is running properly. If there is a problem, it emails you to let you know. The programme is light weight and can be left running on your home PC indefinitly. You can either run it manually in a cmd window (Windows) or bash (Linux), or you can add it to your startup folder (Windows) or use /etc/init.d (Linux) to make it automatically start when you boot.
 
 You can optionally record your nodes data into a csv file for import into Excel/LibreOffice.
 
