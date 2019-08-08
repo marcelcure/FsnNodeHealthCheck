@@ -9,7 +9,7 @@ Details about your specific setup are in the the python program FsnNodeHealth.py
 
 
 # fusion_health_server_VPS.py
-Python programme running on your VPS that sends some docker log data to a port so that your home PC can collect it. This lightweight programme runs in the background.
+Python programme running on your VPS where your node is situated, that sends some docker log data to a port so that your home PC can collect it. This lightweight programme runs in the background.
 
 
 
