@@ -1,5 +1,5 @@
 # FsnNodeHealth.py
-Python program running in the background on your home PC, or backup VPS to check that your node is running properly. If there is a problem, it emails you to let you know. The programme is light weight and can be left running on your home PC or backup VPS indefinitly. You can either run it manually in a cmd window (Windows) or bash (Linux), or you can add it to your startup folder (Windows) or use /etc/init.d (Linux) to make it automatically start when you boot.
+Python program running in the background on your home PC, or backup VPS to check that your node is running properly. If there is a problem, it emails you to let you know. The programme is light weight and can be left running on your home PC or backup VPS indefinitly. You can either run it manually in a cmd window (Windows) or bash (Linux), or you can add it to your startup folder (Windows) or use /etc/init.d (Linux) to make it automatically start when the machine reboots.
 
 If you run the monitor from a backup VPS, you could manually 'fail over' to this if you receive an error warning email. If you maintain a reasonably up to date blockchain using a separate dummy Fusion wallet (and this could be done automatically and routinely using cron), then you will be back up and running quickly, before losing any tickets. Please note that there is no automatic fail over yet in place.
 
