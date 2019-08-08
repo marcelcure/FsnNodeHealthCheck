@@ -1,5 +1,7 @@
 # FsnNodeHealth.py
-Python program running in the background on your home PC to check that your node is running properly. If there is a problem, it emails you to let you know. The programme is light weight and can be left running on your home PC indefinitly. You can either run it manually in a cmd window (Windows) or bash (Linux), or you can add it to your startup folder (Windows) or use /etc/init.d (Linux) to make it automatically start when you boot.
+Python program running in the background on your home PC, or backup VPS to check that your node is running properly. If there is a problem, it emails you to let you know. The programme is light weight and can be left running on your home PC indefinitly. You can either run it manually in a cmd window (Windows) or bash (Linux), or you can add it to your startup folder (Windows) or use /etc/init.d (Linux) to make it automatically start when you boot.
+
+If you run the monitor from a backup VPS, you could manually 'fail over' to this if you receive an error warning email. If you maintain a reasonably up to date blockchain using a separate dummy Fusion wallet, then you will be back up and running quickly, before losing any tickets. Please not that there is no automatic fail over yet in place.
 
 You can optionally record your nodes data into a csv file for import into Excel/LibreOffice.
 
@@ -19,7 +21,7 @@ These two programs working together will check that :-
 
 (1) The VPS is connected to the internet and can be pinged. Programme makes sure that YOUR internet is working first.
 
-(2) Your home PC can access the fusion docker logs and can extract the mined and imported blocks of your node.
+(2) Your home PC, or backup VPS can access the fusion docker logs and can extract the mined and imported blocks of your node.
 
 (3) The mined and imported blocks of your node are advancing and are not too far out of sync. You can configure exactly how close you want it to be.
 
@@ -35,11 +37,11 @@ In addition the programme reports back to the home PC how many FSN rewards have 
 
 # STEPS TO TAKE TO GET IT RUNNING
 
-FIRST:  download the code to your home PC (either the zip or git clone), modify FsnNodeHealth.py for your email, IP address of your VPS and other parameters in the section labelled 'USER CONFIGURABLE SECTION'. Use Notepad (Windows) or nano/vim (Linux) to do this.
+FIRST:  download the code to your home PC, or backup VPS (either the zip or git clone), modify FsnNodeHealth.py for your email, IP address of your VPS and other parameters in the section labelled 'USER CONFIGURABLE SECTION'. Use Notepad (Windows) or nano/vim (Linux) to do this.
 
-Make sure that you have port forwarding set on your home router for TCP and UDP for the port 50505 (unless you have chosen a different one).
+Make sure that you have port forwarding set on the firewall for TCP and UDP for the port 50505 (unless you have chosen a different one).
 
-SECOND: download fusion_health_server_VPS.py to your VPS :-
+SECOND: download fusion_health_server_VPS.py to your VPS where your node is running :-
 
 git clone https://github.com/marcelcure/FsnNodeHealthCheck.git
 
@@ -61,7 +63,7 @@ tail -f fusion_log.txt
 
 You can safely CTRL-C this tail command without stopping the programme and you can also log out of the command shell too.
 
-FINALLY:  run FsnNodeHealth.py on your home PC
+FINALLY:  run FsnNodeHealth.py on your home PC or backup VPS
 
 for Linux :-
 
@@ -79,7 +81,7 @@ See https://www.python.org/downloads/  Click the button to update your PATH.
 
 Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with fg
 
-If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC, then fusion_health_server_VPS.py will simply wait for you to reconnect (wait 1 minute before running FsnNodeHealth.py again to allow fusion_health_server_VPS.py to reset itself). Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
+If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC or backup VPS, then fusion_health_server_VPS.py will simply wait for you to reconnect (wait 1 minute before running FsnNodeHealth.py again to allow fusion_health_server_VPS.py to reset itself). Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
 
 
 # PROBLEMS
@@ -103,8 +105,10 @@ If you see it running (ignore the line with grep in it), then find the process I
 
 kill PID     - insert the actual number in the first column instead of PID
 
-Another problem is that if you CTRL-C FsnNodeHealth.py on your home PC and then re-run it immediately, then fusion_health_server_VPS.py on the VPS won't be ready for it (you have to wait 1 minute). This will mean you have to kill the process fusion_health_server_VPS.py on the VPS and restart it, follwed by FsnNodeHealth.py on your home PC.
+Another problem is that if you CTRL-C FsnNodeHealth.py on your home PC and then re-run it immediately, then fusion_health_server_VPS.py on the VPS won't be ready for it (you have to wait 1 minute). This will mean you have to kill the process fusion_health_server_VPS.py on the VPS and restart it, follwed by FsnNodeHealth.py on your home PC or backup VPS.
 
 # TO DO
 
 Soon I will change FsnNodeHealth.py to optionally use web3-fusion-extend using JS to extract the block info.
+
+I will implement an automatic fail over to a spare 'hot' VPS, once I am sure that there are no false positive error warnings.
