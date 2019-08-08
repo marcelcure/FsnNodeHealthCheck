@@ -5,7 +5,7 @@ If you run the monitor from a backup VPS, you could manually 'fail over' to this
 
 You can optionally record your node's data into a csv file for import into Excel/LibreOffice.
 
-Deatils about your specific setup are in the the python program FsnNodeHealth.py, which can be edited using Notepad (Windows) or nano/vim (Linux) to change the IP addresses and email parameters and to understand how to run it.
+Details about your specific setup are in the the python program FsnNodeHealth.py, which can be edited using Notepad (Windows) or nano/vim (Linux) to change the IP addresses and email parameters and to understand how to run it.
 
 
 # fusion_health_server_VPS.py
