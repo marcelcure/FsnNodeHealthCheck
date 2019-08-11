@@ -80,7 +80,7 @@ See https://www.python.org/downloads/  Click the button to update your PATH.
 
 Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with fg
 
-If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC or backup VPS, then fusion_health_server_VPS.py will simply wait for you to reconnect (wait 1 minute before running FsnNodeHealth.py again to allow fusion_health_server_VPS.py to reset itself). Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
+If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC or backup VPS, then fusion_health_server_VPS.py will simply wait for you to reconnect (wait 1 minute before running FsnNodeHealth.py again to allow fusion_health_server_VPS.py to reset itself). Another sanity check is to put an nonexistant IP address for your VPS to check that emails are sent to you.
 
 
 # HOW TO CHECK MULTIPLE NODES
