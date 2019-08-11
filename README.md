@@ -85,7 +85,7 @@ If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that t
 
 # HOW TO CHECK MULTIPLE NODES
 
-You can set up the system to have one backup for multiple nodes by simply running fusion_health_server_VPS.py on each node and then running FsnNodeHealth.py multiple times on your home PC, or backup VPS machine. You must assign a different port number and IP address for each node in the configuration section. Make sure that the port number in fusion_health_server_VPS.py is the same as in each instance of FsnNodeHealth.py. I suggest that you use consecutive port numbers 50505, 50506, 50507 etc.
+You can set up the system to have one backup for multiple nodes by simply running fusion_health_server_VPS.py on each node and then running FsnNodeHealth.py multiple times on your home PC, or backup VPS machine. You must assign a different port number and IP address and csv file name for each node in the configuration section. Make sure that the port number in fusion_health_server_VPS.py is the same as in each instance of FsnNodeHealth.py. I suggest that you use consecutive port numbers 50505, 50506, 50507 etc.
 
 
 
