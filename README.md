@@ -83,6 +83,12 @@ Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py yo
 If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that there is a problem and email you. This is a good check to make sure it is working OK. If you stop FsnNodeHealth.py on your home PC or backup VPS, then fusion_health_server_VPS.py will simply wait for you to reconnect (wait 1 minute before running FsnNodeHealth.py again to allow fusion_health_server_VPS.py to reset itself). Another sanity check is to put an incorrect IP address for your VPS to check that emails are sent to you.
 
 
+# HOW TO CHECK MULTIPLE NODES
+
+You can set up the system to have one backup for multiple nodes by simply running fusion_health_server_VPS.py on each node and then running FsnNodeHealth.py multiple times on your home PC, or backup VPS machine. You must assign a different port number and IP address for each node in the configuration section. Make sure that the port number in fusion_health_server_VPS.py is the same as in each instance of FsnNodeHealth.py. I suggest that you use consecutive port numbers 50505, 50506, 50507 etc.
+
+
+
 # PROBLEMS
 
 Feel free to contact me on the Fusion TG for assistance.
