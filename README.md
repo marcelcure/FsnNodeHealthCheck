@@ -76,7 +76,7 @@ python FsnNodeHealth.py
 
 You will need to download and install python for Windows, since it doesn't come pre-installed. 
 
-See https://www.python.org/downloads/  Click the button to update your PATH.
+See https://www.python.org/downloads/  Click the button to update your PATH and start a new command shell before you proceed to refresh your PATH variable.
 
 Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py you first have to bring it to the foreground with fg
 
