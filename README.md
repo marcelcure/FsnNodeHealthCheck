@@ -54,9 +54,9 @@ chmod +x fusion_health_server_VPS.py  (only the first time, or if you git update
 
 ./fusion_health_server_VPS.py > fusion_log.txt  2>&1  &
 
-This then waits for you to run FsnNodeHealth.py on your home PC (step shown below)
+This then waits for you to run FsnNodeHealth.py on your home PC (step shown below). You can check that your monitor is running on your VPS by using the command jobs. If it isn't, then try running the command in the foreground first to see any error messages. Just type ./fusion_health_server_VPS.py  You can CTRL-C this when you are happy and then run it in background again so that you can close down your shell on your VPS.
 
-You can monitor what the programme is doing :-
+For the programme running in the background (the command finishing with &), you can monitor what the programme is doing :-
 
 tail -f fusion_log.txt
 
