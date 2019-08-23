@@ -177,6 +177,7 @@ while(1):
                      tm = datetime.datetime.now()
                   except KeyboardInterrupt:
                      print('Bye')
+                     s.close()
                      sys.exit()
                   except:
                      print('Did not receive data from VPS fusion docker')
@@ -199,7 +200,7 @@ while(1):
 #
                       if len(fusion_output_file) > 1:     # Log output if file name is set, eles ignore
                           fp.write('%s %17u %17u %17u %17u %17u            %10.3f\n'\
-                              %(tmstr,block_import,block_mining,latest_block,free_mem,free_disk/(1024),fusion_rewards())) 
+                              %(tmstr,block_import,block_mining,latest_block,free_mem,free_disk/(1024),float(fusion_rewards()))) 
                           fp.flush()
 #
 #
