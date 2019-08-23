@@ -72,7 +72,7 @@ chmod +x FsnNodeHealth.py  (Only first time)
 
 OR for Windows PC :-
 
-python FsnNodeHealth.py
+python FsnNodeHealth_Windows.py
 
 You will need to download and install python for Windows, since it doesn't come pre-installed. 
 
