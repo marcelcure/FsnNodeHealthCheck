@@ -58,7 +58,7 @@ This then waits for you to run FsnNodeHealth.py on your home PC (step shown belo
 
 jobs
 
-If it isn't, so that you see a blank output, then try running the command in the foreground first to see any error messages. Just type ./fusion_health_server_VPS.py  You can CTRL-C this when you have resloved any problems and are happy and then you can run it in background again so that you can close down your shell on your VPS.
+If it isn't, so that you see a blank output, then try running the command in the foreground first to see any error messages. Just type ./fusion_health_server_VPS.py  You should see a message like 'waiting for client connection'. You can CTRL-C this when you have resolved any problems (e.g. port access problems) and are happy and then you can run it in background again so that you can close down your shell on your VPS.
 
 For the programme running in the background (the command finishing with &), you can monitor what the programme is doing :-
 
