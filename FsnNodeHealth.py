@@ -143,10 +143,13 @@ while(1):
    
    if is_connected():
       for hostname in hostIP:
-         if os.uname()[0] == 'Linux':
+         if sys.platform[0:5] == 'linux':
             response = os.system('ping -c 1 ' + hostname)
-         elif os.uname()[0] == 'Windows':
+         elif sys.platform[0:2] == 'win':
              response = os.system('ping -n 1 ' + hostname)
+         else:
+             print('Only Linux and Windows supported')
+             sys.exit()
          if response == 0:
             print(hostname + ' is up')
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
