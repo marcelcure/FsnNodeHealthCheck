@@ -66,7 +66,7 @@ tail -f fusion_log.txt
 
 You can safely CTRL-C this tail command without stopping the programme and you can also log out of the command shell too.
 
-NB If you are on Digital Ocean, you need to install a dependency for the netifaces python package :-
+NB If you are on Digital Ocean, you need to install a dependency for the netifaces python package. Run these 4 commands :-
 
 sudo apt install python3-setuptools
 
