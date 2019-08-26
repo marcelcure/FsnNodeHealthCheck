@@ -36,7 +36,7 @@ In addition the programme reports back to the home PC, or backup VPS how many FS
 
 # STEPS TO TAKE TO GET IT RUNNING
 
-I've tried to be a careful as possible with my instructions here, but if you are uncomfortable with Linux, I can handhold you through the process of setting up this programme for a fee of 75 FSN payable when you are up and running. PLease DM me @marcelsecu if you want this type of support.
+I've tried to be a careful as possible with my instructions here, but it assumes some level of knowledge about Linux and if you are uncomfortable with Linux, I can handhold you through the process of setting up this programme for a fee of 75 FSN payable when you are up and running. Please DM me @marcelsecu if you want this type of support.
 
 FIRST:  download the code to your home PC, or backup VPS (either the zip or git clone https://github.com/marcelcure/FsnNodeHealthCheck.git), modify FsnNodeHealth.py for your email, IP address of your VPS and other parameters in the section labelled 'USER CONFIGURABLE SECTION'. Use Notepad (Windows) or nano/vim (Linux) to do this.
 
