@@ -110,7 +110,7 @@ Another way to do it is to have 2 nodes each running with a different wallet and
 
 # PROBLEMS
 
-Feel free to contact me on the Fusion TG for assistance.
+Feel free to contact me on the Fusion TG to report bugs or to suggest improvements. Since I am using this myself, I will be happy to implement enhancements, if they are not too time consuming.
 
 One problem I have found is that sometimes an old fusion_health_server_VPS process is left running on the VPS. This should be removed before running fusion_health_server_VPS.py
 
