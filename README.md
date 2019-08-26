@@ -62,7 +62,7 @@ screen
 
 This then waits for you to run FsnNodeHealth.py on your home PC or backup VPS (step shown below). You can check that your monitor is running on your VPS by using the command :-
 
-ps ax|grep VPS
+ps ax|grep fusion_health_server_VPS
 
 If don't see the fusion_health_server_VPS.py line, so that you see only your grep command, then try running the command without logging the output first to see any error messages. Just type ./fusion_health_server_VPS.py  You should see a message like 'waiting for client connection'. You can CTRL-C this when you have resolved any problems (e.g. port access problems) and are happy and then you can run it in background again so that you can close down your shell on your VPS.
 
