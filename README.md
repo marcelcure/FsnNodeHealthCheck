@@ -58,7 +58,7 @@ Then start a screen process (you may have to install this first with the command
 
 screen
 
-./fusion_health_server_VPS.py | tee -a fusion_log.txt> fusion_log.txt
+./fusion_health_server_VPS.py | tee -a fusion_log.txt
 
 This then waits for you to run FsnNodeHealth.py on your home PC or backup VPS (step shown below). You can check that your monitor is running on your VPS by using the command :-
 
