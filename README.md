@@ -54,19 +54,19 @@ cd FsnNodeHealthCheck
 
 chmod +x fusion_health_server_VPS.py  (only the first time, or if you git update)
 
-./fusion_health_server_VPS.py > fusion_log.txt  2>&1  &
+Then start a screen process (you may have to install this first with the command sudo apt install screen ):-
 
-This then waits for you to run FsnNodeHealth.py on your home PC (step shown below). You can check that your monitor is running on your VPS by using the command jobs :-
+screen
 
-jobs
+./fusion_health_server_VPS.py | tee -a fusion_log.txt> fusion_log.txt
 
-If it isn't, so that you see a blank output, then try running the command in the foreground first to see any error messages. Just type ./fusion_health_server_VPS.py  You should see a message like 'waiting for client connection'. You can CTRL-C this when you have resolved any problems (e.g. port access problems) and are happy and then you can run it in background again so that you can close down your shell on your VPS.
+This then waits for you to run FsnNodeHealth.py on your home PC or backup VPS (step shown below). You can check that your monitor is running on your VPS by using the command :-
 
-For the programme running in the background (the command finishing with &), you can monitor what the programme is doing :-
+ps ax|grep VPS
 
-tail -f fusion_log.txt
+If don't see the fusion_health_server_VPS.py line, so that you see only your grep command, then try running the command without logging the output first to see any error messages. Just type ./fusion_health_server_VPS.py  You should see a message like 'waiting for client connection'. You can CTRL-C this when you have resolved any problems (e.g. port access problems) and are happy and then you can run it in background again so that you can close down your shell on your VPS.
 
-You can safely CTRL-C this tail command without stopping the programme and you can also log out of the command shell too.
+You can safely detach from this screen shell using CTRL-A d  (that is CTRL-A followed by d key) without stopping the programme and you can also log out of the command shell too. When you come back to your staking VPS, you can reattach to this shell by typing the screen command again.
 
 NB If you are on Digital Ocean, you need to install a dependency for the netifaces python package. Run these 4 commands :-
 
@@ -86,6 +86,14 @@ for Linux :-
 chmod +x FsnNodeHealth.py  (Only first time)
 
 ./FsnNodeHealth.py
+
+or if you want to run this programme in the background so that you can close the shell then use the screen cammand as described before :-
+
+screen
+
+./FsnNodeHealth.py
+
+and then CTRL-A d
 
 OR for Windows PC :-
 
