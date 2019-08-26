@@ -69,8 +69,11 @@ You can safely CTRL-C this tail command without stopping the programme and you c
 NB If you are on Digital Ocean, you need to install a dependency for the netifaces python package :-
 
 sudo apt install python3-setuptools
+
 sudo easy_install3 pip
+
 sudo apt install python3-dev
+
 sudo pip3 install netifaces
 
 
