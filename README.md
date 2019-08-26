@@ -99,7 +99,7 @@ OR for Windows PC :-
 
 python FsnNodeHealth.py
 
-You will need to download and install python for Windows, since it doesn't come pre-installed. 
+You will need to download and install python for Windows, since it doesn't come pre-installed and you will need to leave your PC on 24/7 with the command window open. 
 
 See https://www.python.org/downloads/  Click the button to update your PATH and start a new command shell before you proceed to refresh your PATH variable.
 
