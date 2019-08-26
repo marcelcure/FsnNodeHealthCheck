@@ -101,9 +101,9 @@ python FsnNodeHealth.py
 
 You will need to download and install python for Windows, since it doesn't come pre-installed. 
 
-Please note that you will need to leave your PC on 24/7 with the command window open. If you are running a backup VPS as your monitor, then of course this isn't an issue.
-
 See https://www.python.org/downloads/  Click the button to update your PATH and start a new command shell before you proceed to refresh your PATH variable.
+
+Please note that you will need to leave your PC on 24/7 with the command window open. If you are running a backup VPS as your monitor, then of course this isn't an issue.
 
 Programmes can be stopped with CTRL-C but to stop fusion_health_server_VPS.py that is running in the background, you first have to attach to the screen process with the command screen.
 
