@@ -62,7 +62,7 @@ screen
 
 This then waits for you to run FsnNodeHealth.py on your home PC or backup VPS (step shown below). 
 
-If you see errors, then try running the command without logging the output first to see any error messages. Just type ./fusion_health_server_VPS.py  You should see a message like 'waiting for client connection'. You can CTRL-C this when you have resolved any problems (e.g. port access problems) and are happy and then you can run it in background again so that you can close down your shell on your VPS.
+If you see errors or the programme just stops, then try running the command without logging the output first to see any error messages. Just type ./fusion_health_server_VPS.py  You should see a message like 'waiting for client connection'. You can CTRL-C this when you have resolved any problems (e.g. port access problems) and are happy and then you can run it in background again so that you can close down your shell on your VPS.
 
 You can safely detach from this screen shell using CTRL-A d  (that is CTRL-A followed by d key) without stopping the programme and you can also log out of the command shell too. When you come back to your staking VPS, you can reattach to this shell by typing the screen -r command.
 
