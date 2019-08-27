@@ -93,7 +93,7 @@ screen
 
 ./FsnNodeHealth.py
 
-and then CTRL-A d
+and then CTRL-A d  (you can reattach to the screen with the command screen -r )
 
 OR for Windows PC :-
 
