@@ -66,7 +66,7 @@ ps ax|grep fusion_health_server_VPS
 
 If don't see the fusion_health_server_VPS.py line, so that you see only your grep command, then try running the command without logging the output first to see any error messages. Just type ./fusion_health_server_VPS.py  You should see a message like 'waiting for client connection'. You can CTRL-C this when you have resolved any problems (e.g. port access problems) and are happy and then you can run it in background again so that you can close down your shell on your VPS.
 
-You can safely detach from this screen shell using CTRL-A d  (that is CTRL-A followed by d key) without stopping the programme and you can also log out of the command shell too. When you come back to your staking VPS, you can reattach to this shell by typing the screen command again.
+You can safely detach from this screen shell using CTRL-A d  (that is CTRL-A followed by d key) without stopping the programme and you can also log out of the command shell too. When you come back to your staking VPS, you can reattach to this shell by typing the screen -r command.
 
 NB If you are on Digital Ocean, you need to install a dependency for the netifaces python package. Run these 4 commands :-
 
