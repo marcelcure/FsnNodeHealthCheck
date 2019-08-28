@@ -110,10 +110,115 @@ If you stop fusion_health_server_VPS.py, then FsnNodeHealth.py will think that t
 
 # HOW TO CHECK MULTIPLE NODES
 
-You can set up the system to have one backup for multiple nodes by simply running fusion_health_server_VPS.py on each node and then running FsnNodeHealth.py multiple times on your home PC, or backup VPS machine. You must assign a different port number and IP address and csv file name for each node in the configuration section. Make sure that the port number in fusion_health_server_VPS.py is the same as in each instance of FsnNodeHealth.py. I suggest that you use consecutive port numbers 50505, 50506, 50507 etc.
+You can set up the system to have one backup for multiple nodes by simply running fusion_health_server_VPS.py on each node and then running FsnNodeHealth.py multiple times on your home PC, or backup VPS machine. You must assign a different port number and IP address for each node in the configuration section. Make sure that the port number in fusion_health_server_VPS.py is the same as in each instance of FsnNodeHealth.py. I suggest that you use consecutive port numbers 50505, 50506, 50507 etc.
 
 Another way to do it is to have 2 nodes each running with a different wallet and checking each other. This time each VPS runs both programmes, but with different port numbers and IP's. This is less satisfactory though, since you will not be able to fail over, when this is implemented. Another problem would be if ethernet connectivity was compromised on either of the nodes, since BOTH would then generate errors and send an email to you. It is better to have a completely separate, idle and up to date blockchain on a VPS.
 
+The steps to set up 1 backup VPS checking 2 staking VPS's (stakingA and stakingB) are as follows :-
+
+(1) On stakingA log in, download the code and change directory and make executable :-
+
+git clone https://github.com/marcelcure/FsnNodeHealthCheck.git
+
+cd FsnNodeHealthCheck
+
+chmod +x fusion_health_server_VPS.py
+
+(2) Simply start the programme :-
+
+screen
+
+./fusion_health_server_VPS.py | tee --output-error=warn -a fusion_log.txt
+
+Make sure you see the message 'waiting for client connection' in the log file fusion_log.txt and then CTRL-A d and then log out.
+
+(3) On VPS stakingB do the same things, but before you run it, alter the port to 50506 :-
+
+nano fusion_health_server_VPS.py
+
+edit line to be :-
+
+PORT = 50506        # Port to listen on (use a non-privilidged port  > 1023)
+
+Then CTRL-X Y  to exit editor
+
+(4) On your backup VPS you should make separate folders for each staking VPS instant and download the code into each folder and then edit the code file to reflect the correct port number and other details :-
+
+mkdir stakingA
+
+cd stakingA
+
+git clone https://github.com/marcelcure/FsnNodeHealthCheck.git
+
+cd FsnNodeHealthCheck
+
+chmod +x FsnNodeHealth.py
+
+nano FsnNodeHealth.py
+
+change all details to reflect your setup :- host_IP, pub_key, mail_user, mail_password, to email address.
+
+CTRL-X Y  to save.
+
+(5)  Start the monitor in a screen session :-
+
+screen
+
+./FsnNodeHealth.py
+
+Make sure that you connect to stakingA by waiting a couple of minutes and that you see blockchain output. 
+
+CTRL-A d detaches from the screen, but leaves the programme running.
+
+Then go back to your home folder :-
+
+cd 
+
+(6) Setup for the next staking monitor for stakingB VPS in a similar way:-
+
+mkdir stakingB
+
+cd stakingB
+
+git clone https://github.com/marcelcure/FsnNodeHealthCheck.git
+
+cd FsnNodeHealthCheck
+
+chmod +x FsnNodeHealth.py
+
+nano FsnNodeHealth.py
+
+change all details to reflect your setup :- host_IP, pub_key, mail_user, mail_password, to email address.
+
+This time also change the port configuration to be :-
+
+PORT = 50506     #   OK to leave 'as is' unless you are ...
+
+CTRL-X Y  to save.
+
+(7)  Start the monitor in the same screen session :-
+
+screen
+
+./FsnNodeHealth.py
+
+Make sure that you connect to stakingB by waiting a couple of minutes and that you see blockchain output. 
+
+You can exit the screen with CTRL-A d and then logout.
+
+You can list the two screens running with the command screen -list
+
+You can check to see if the monitor is working by reattaching to each of the backup VPS's using screen -r <choose the screen to attach to> and when you have seen it working, CTRL-A d and then screen -r <choose the other screen> CTRL-A d again. Then logout of your backup VPS
+  
+The backup VPS can also be used to run a 'hot spare' blockchain. This is best done as a normal user, not root.
+
+Setup a dummy Fusion wallet and send it 0.1 FSN for gas. Get it running using Joey's script :-
+
+curl -sL https://raw.githubusercontent.com/FUSIONFoundation/efsn/master/QuickNodeSetup/fsnNode.sh -o fsnNode.sh && sudo bash fsnNode.sh
+
+Let the blockchain sync.
+
+If you get email warnings from the monitor and you decide to switch to the backup VPS, you will need to reconfigure it to point to your staking wallet using fsnNode.sh. Please be careful that you do not run two nodes using the same staking wallet, since the punishment is severe - lose staking rights.
 
 
 # PROBLEMS
