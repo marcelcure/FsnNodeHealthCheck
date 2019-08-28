@@ -145,7 +145,7 @@ while(1):
       for hostname in hostIP:
          if sys.platform[0:5] == 'linux':
             response = os.system('ping -c 1 ' + hostname)
-         elif sys.platform[0:2] == 'win':
+         elif sys.platform[0:3] == 'win':
              response = os.system('ping -n 1 ' + hostname)
          else:
              print('Only Linux and Windows supported')
