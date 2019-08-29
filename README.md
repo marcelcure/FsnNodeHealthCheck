@@ -76,6 +76,8 @@ sudo apt install python3-dev
 
 sudo pip3 install netifaces
 
+NB2 If you are running on AWS EC2  (Elastic Cloud Computing) VPS, you have to set the host_IP variable to be the IP address of the machine, so that it is the same as in FsnNodeHealth.py. I had to do it this way because it is difficult to get the IP address of the machine programatically. If you are NOT on an AWS virtual machine, then please leave this set to host_IP = ''
+
 
 FINALLY:  run FsnNodeHealth.py on your home PC or backup VPS
 
