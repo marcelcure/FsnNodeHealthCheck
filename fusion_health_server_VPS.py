@@ -25,6 +25,9 @@ tdelay = 30     # Time in seconds between checking docker logs
 #
 PORT = 50505        # Port to listen on (use a non-privilidged port  > 1023)
 #
+iface = 'eth0'      # Interface of the primary public network
+#
+host_IP = ''        # IP address of THIS VPS. ONLY set this if this is running on an AWS EC2 virtual machine. This is because it is difficult to discover the public IP of the machine
 #
 #######################################################################
 
@@ -86,8 +89,8 @@ def get_latest_block():
 #
 #
 def get_IP_address(iface):
-   ni.ifaddresses('eth0')
-   ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
+   ni.ifaddresses(iface)
+   ip = ni.ifaddresses(iface)[ni.AF_INET][0]['addr']
    return(ip)
 #
 #
@@ -101,11 +104,11 @@ def get_IP_address(iface):
 #
 while(1):
    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-       HOST = get_IP_address('eth0')
+       HOST = get_IP_address(iface)
        print('hostname = ', HOST)
        s.bind((HOST, PORT))
        print("socket bound to %s" %(PORT))
-       s.listen(2)         # Only allow two incoming connections
+       s.listen(1)         # Only allow one incoming connection
 
        print('Waiting for a client connection')
        conn, addr = s.accept()    #  This blocks, waiting for an incoming connection from the client
@@ -115,12 +118,13 @@ while(1):
           while True:
              data = conn.recv(1024)
              if not data:
+                print('No data received')
                 break
 
 
 
              time.sleep(tdelay)
-             [block_import,block_mining] = block_mining_info_LOGS()
+             [block_import,block_mining,errfsn] = block_mining_info_LOGS()
              latest_block = get_latest_block()
 
              tot_m, used_m, free_m = map(int, os.popen('free -t -m').readlines()[-1].split()[1:])
