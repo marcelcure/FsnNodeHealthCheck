@@ -76,7 +76,9 @@ sudo apt install python3-dev
 
 sudo pip3 install netifaces
 
-NB2 If you are running on AWS EC2  (Elastic Cloud Computing) VPS, you have to set the host_IP variable to be the IP address of the machine, so that it is the same as in FsnNodeHealth.py. I had to do it this way because it is difficult to get the IP address of the machine programatically. If you are NOT on an AWS virtual machine, then please leave this set to host_IP = ''
+NB2 If you are running on AWS EC2  (Elastic Cloud Computing) VPS, you have to enable some rules in the configuration stage for port access and to allow the VPS to be seen from outside for services other than SSH.
+
+There is a tab saying 6. Configure Security Group. In that tab, you see a rule for SSH, which you should leave. You select 'Add rule' and then choose 'Custom ICMP rule' and to the right, choose 'Echo request' and to the right of that, choose 'Anywhere' and save that. You can then add rules for TCP and UDP access for port 50505 for 'anywhere', (or your monitor IP perhaps).
 
 
 FINALLY:  run FsnNodeHealth.py on your home PC or backup VPS
