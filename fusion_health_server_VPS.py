@@ -104,7 +104,10 @@ def get_IP_address(iface):
 #
 while(1):
    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-       HOST = get_IP_address(iface)
+       if len(iface) == 0:
+          HOST = get_IP_address(iface)
+       else:
+          HOST = host_IP
        print('hostname = ', HOST)
        s.bind((HOST, PORT))
        print("socket bound to %s" %(PORT))
