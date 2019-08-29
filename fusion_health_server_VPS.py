@@ -27,7 +27,7 @@ PORT = 50505        # Port to listen on (use a non-privilidged port  > 1023)
 #
 iface = 'eth0'      # Interface of the primary public network
 #
-host_IP = ''        # IP address of THIS VPS. ONLY set this if this is running on an AWS EC2 virtual machine. This is because it is difficult to discover the public IP of the machine
+host_IP = ''        # IP address of THIS VPS. ONLY set this if it is difficult to discover the IP of the machine by examining the interface networks
 #
 #######################################################################
 
