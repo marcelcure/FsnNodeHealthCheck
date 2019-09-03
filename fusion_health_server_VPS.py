@@ -127,7 +127,7 @@ while(1):
 
 
              time.sleep(tdelay)
-             [block_import,block_mining,errfsn] = block_mining_info_LOGS()
+             [block_import,block_mining] = block_mining_info_LOGS()
              latest_block = get_latest_block()
 
              tot_m, used_m, free_m = map(int, os.popen('free -t -m').readlines()[-1].split()[1:])
