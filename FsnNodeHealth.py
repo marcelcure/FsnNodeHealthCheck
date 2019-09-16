@@ -47,8 +47,8 @@ lowest_free_mem = 500 # in Mb lowest allowable free memory
 lowest_free_disk = 10  # on Gb lowest allowable free disk space in / partition
 #
 hostIP = [
-    '00.00.00.00',        # Mainnet IP address. Put your own one here
-#     '123.123.123.123',     # Comment out the above entries and uncomment this dummy one to test your email response
+    '000.000.000.000',        # Mainnet IP address. Put your own one here
+#    '123.123.123.123',     # Comment out the above entry and uncomment this dummy non-existent one to test your email response
 ]
 #
 pub_key = '0x0000000000000000000000000000000000000000'    # Your Fusion public key for your mining wallet
@@ -67,7 +67,7 @@ sent_from = ' '
 to = ['mymail@gmail.com',]           # email address that you want to send alert to
 #
 #
-fusion_output_file = 'fusion_mining_info.csv'  # If you set this file, then data from your VPS will be logged and you can look at it with Excel or LibreOffice
+fusion_output_file = 'fusion_mining_info.dat'  # If you set this file, then data from your VPS will be logged and you can look at it with Excel or LibreOffice
 #
 #  THE END OF USER CONFIGURABLE SECTION
 #
@@ -86,6 +86,7 @@ def is_connected():
     return False
 #
 def send_fusion_email(subject, body):
+    print(subject,'        ',body)
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
@@ -111,17 +112,20 @@ def send_fusion_email(subject, body):
     
 def fusion_rewards():
 #
-   with urllib.request.urlopen('https://api.fusionnetwork.io/balances/'+ pub_key) as response:
-      apifsn = response.read()
 #
-   apifsn = apifsn.decode("utf-8")
+    try:
+        response = urllib.request.urlopen('https://api.fusionnetwork.io/balances/'+ pub_key)
+    except:
+        return('-1')
+    
+    apifsn = response.read()
+    apifsn = apifsn.decode("utf-8")
+    api = json.loads(apifsn)
 #
-   api = json.loads(apifsn)
+#    print(api[0])
+#    print(api[0]['rewardEarn'])
 #
-#   print(api[0])
-#   print(api[0]['rewardEarn'])
-#
-   return(api[0]['rewardEarn'])
+    return(api[0]['rewardEarn'])
     
 ######################################################################################################################################
 #
@@ -138,14 +142,14 @@ if len(fusion_output_file) > 1:
        fp.write("Date                           Imported Block    Mined Block       Block Height        Free Mem (Mb)   Free Disk (Mb)       Fusion Rewards\n")
 #
 #
+hostname = hostIP[0]
 #
 while(1):
    
    if is_connected():
-      for hostname in hostIP:
          if sys.platform[0:5] == 'linux':
             response = os.system('ping -c 1 ' + hostname)
-         elif sys.platform[0:3] == 'win':
+         elif sys.platform[0:2] == 'win':
              response = os.system('ping -n 1 ' + hostname)
          else:
              print('Only Linux and Windows supported')
@@ -161,7 +165,7 @@ while(1):
                   print('Could not connect to fusion node monitor, try ',connerr, ' of ',maxconnerr)
                   if connerr == maxconnerr:
                      subject = 'Fusion Monitor on VPS is Down'              # email subject header
-                     body = 'hostname ' + hostname + ' Fusion Monitor on VPS is down'
+                     body = ['hostname ' + hostname + ' Fusion Monitor on VPS is down']
 #
                      if last_email_time%email_time == 0:
                         if send_fusion_email(subject, body):
@@ -180,7 +184,6 @@ while(1):
                      tm = datetime.datetime.now()
                   except KeyboardInterrupt:
                      print('Bye')
-                     s.close()
                      sys.exit()
                   except:
                      print('Did not receive data from VPS fusion docker')
@@ -210,7 +213,7 @@ while(1):
                       if block_mining > block_import + mining_import_gap:
                           print('Warning: Mining more than ',mining_import_gap,' blocks ahead of the last imported block. Could be that chain is slow!')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = 'hostname ' + hostname + ' Warning: Mining more than ',mining_import_gap,' blocks ahead of the last imported block. Could be that chain is slow!'
+                          body = ['hostname ' + hostname + ' Warning: Mining more than ',mining_import_gap,' blocks ahead of the last imported block. Could be that chain is slow!']
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -221,7 +224,7 @@ while(1):
                       if latest_block > block_mining + mining_latest_gap:
                           print('Warning: The block height is more than ',mining_latest_gap,' blocks ahead of the last mined block. Could be that chain is slow!')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = 'hostname ' + hostname + ' Warning: Block height is more than ',mining_latest_gap,' blocks ahead of the last mined block. Could be that chain is slow!'
+                          body = ['hostname ' + hostname + ' Warning: Block height is more than ',mining_latest_gap,' blocks ahead of the last mined block. Could be that chain is slow!']
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -233,7 +236,7 @@ while(1):
                       if block_mining == old_block_mining:
                           print('Warning: The latest mined block is not increasing')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = 'hostname ' + hostname + ' Warning: The latest mined block is not increasing'
+                          body = ['hostname ' + hostname + ' Warning: The latest mined block is not increasing']
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -247,7 +250,7 @@ while(1):
                       if block_import == old_block_import:
                           print('Warning: The latest imported block is not increasing')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = 'hostname ' + hostname + ' Warning: The latest imported block is not increasing'
+                          body = ['hostname ' + hostname + ' Warning: The latest imported block is not increasing']
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -261,7 +264,7 @@ while(1):
                       if free_mem < lowest_free_mem:
                           print('Warning: The available free memory is below the allowable limit')
                           subject = 'Fusion Low Memory Warning'              # email subject header
-                          body = 'hostname ' + hostname + ' Warning: The available free memory is below the allowable limit'
+                          body = ['hostname ' + hostname + ' Warning: The available free memory is below the allowable limit']
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -274,7 +277,7 @@ while(1):
                       if free_disk/(1024*1024) < lowest_free_disk:
                           print('Warning: The available free disk space is below the allowable limit')
                           subject = 'Fusion Low Disk Space Warning'              # email subject header
-                          body = 'hostname ' + hostname + ' Warning: The available free disk space is below the allowable limit'
+                          body = ['hostname ' + hostname + ' Warning: The available free disk space is below the allowable limit']
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -290,7 +293,7 @@ while(1):
                if is_connected():  #  Only send email if YOUR internet is working, but hostname is unreachable.
                    
                   subject = 'Fusion Node Down'              # email subject header
-                  body = 'hostname '+hostIP[0]+' is down'
+                  body = ['hostname '+hostIP[0]+' is down']
                   
 #
                   if last_email_time%email_time == 0:
@@ -311,3 +314,4 @@ while(1):
 
 #                sys.exit("Quitting program")
 
+#ERROR[08-02|23:09:59.574] Failed to prepare header for mining      err="Miner doesn't have ticket at block height 221402"
