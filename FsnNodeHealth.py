@@ -213,7 +213,7 @@ while(1):
                       if block_mining > block_import + mining_import_gap:
                           print('Warning: Mining more than ',mining_import_gap,' blocks ahead of the last imported block. Could be that chain is slow!')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = ['hostname ' + hostname + ' Warning: Mining more than ',mining_import_gap,' blocks ahead of the last imported block. Could be that chain is slow!']
+                          body = 'hostname ' + hostname + ' Warning: Mining more than ',str(mining_import_gap),' blocks ahead of the last imported block. Could be that chain is slow!'
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -224,7 +224,7 @@ while(1):
                       if latest_block > block_mining + mining_latest_gap:
                           print('Warning: The block height is more than ',mining_latest_gap,' blocks ahead of the last mined block. Could be that chain is slow!')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = ['hostname ' + hostname + ' Warning: Block height is more than ',mining_latest_gap,' blocks ahead of the last mined block. Could be that chain is slow!']
+                          body = 'hostname ' + hostname + ' Warning: Block height is more than ',str(mining_latest_gap),' blocks ahead of the last mined block. Could be that chain is slow!'
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -236,7 +236,7 @@ while(1):
                       if block_mining == old_block_mining:
                           print('Warning: The latest mined block is not increasing')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = ['hostname ' + hostname + ' Warning: The latest mined block is not increasing']
+                          body = 'hostname ' + hostname + ' Warning: The latest mined block is not increasing'
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -250,7 +250,7 @@ while(1):
                       if block_import == old_block_import:
                           print('Warning: The latest imported block is not increasing')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = ['hostname ' + hostname + ' Warning: The latest imported block is not increasing']
+                          body = 'hostname ' + hostname + ' Warning: The latest imported block is not increasing'
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -264,7 +264,7 @@ while(1):
                       if free_mem < lowest_free_mem:
                           print('Warning: The available free memory is below the allowable limit')
                           subject = 'Fusion Low Memory Warning'              # email subject header
-                          body = ['hostname ' + hostname + ' Warning: The available free memory is below the allowable limit']
+                          body = 'hostname ' + hostname + ' Warning: The available free memory is below the allowable limit'
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
@@ -277,7 +277,7 @@ while(1):
                       if free_disk/(1024*1024) < lowest_free_disk:
                           print('Warning: The available free disk space is below the allowable limit')
                           subject = 'Fusion Low Disk Space Warning'              # email subject header
-                          body = ['hostname ' + hostname + ' Warning: The available free disk space is below the allowable limit']
+                          body = 'hostname ' + hostname + ' Warning: The available free disk space is below the allowable limit'
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
