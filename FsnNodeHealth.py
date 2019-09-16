@@ -293,7 +293,7 @@ while(1):
                if is_connected():  #  Only send email if YOUR internet is working, but hostname is unreachable.
                    
                   subject = 'Fusion Node Down'              # email subject header
-                  body = ['hostname '+hostIP[0]+' is down']
+                  body = 'hostname '+hostIP[0]+' is down'
                   
 #
                   if last_email_time%email_time == 0:
