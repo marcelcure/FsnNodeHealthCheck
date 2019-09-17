@@ -213,7 +213,9 @@ while(1):
                       if block_mining > block_import + mining_import_gap:
                           print('Warning: Mining more than ',mining_import_gap,' blocks ahead of the last imported block. Could be that chain is slow!')
                           subject = 'Fusion Chain Poor Mining Performance'              # email subject header
-                          body = 'hostname ' + hostname + ' Warning: Mining more than ',str(mining_import_gap),' blocks ahead of the last imported block. Could be that chain is slow!'
+                          #body = 'hostname ' + hostname + ' Warning: Mining more than ',str(mining_import_gap),' blocks ahead of the last imported block. Could be that chain is slow!'
+                          body = 'hostname ' + hostname + ' Warning: Block height is too far ahead of the last mined block. Could be that chain is slow!'
+#
 #
                           if last_email_time%email_time == 0:
                              if send_fusion_email(subject, body):
